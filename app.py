@@ -3,6 +3,11 @@ import razorpay
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
+import os
+
+print("RAZORPAY_KEY_ID:", os.getenv("RAZORPAY_KEY_ID"))
+print("RAZORPAY_KEY_SECRET:", os.getenv("RAZORPAY_KEY_SECRET"))
+
 
 # Load environment variables
 load_dotenv()
@@ -32,4 +37,4 @@ def create_order():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', port=int(os.getenv("PORT", 5000)), debug=True)
