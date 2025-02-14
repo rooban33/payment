@@ -22,7 +22,7 @@ razorpay_client = razorpay.Client(auth=(os.getenv("RAZORPAY_KEY_ID"), os.getenv(
 def create_order():
     try:
         data = request.json
-        amount = data.get("amount", 1)  # Default to 500 INR
+        amount = data.get("amount", 250) 
         currency = data.get("currency", "INR")
 
         # Create order
