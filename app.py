@@ -75,7 +75,7 @@ def create_order():
         order = razorpay_client.order.create({
             "amount": amount * 100,  # Razorpay expects amount in paise
             "currency": currency,
-            "payment_capture": 250  # Auto capture payment
+            "payment_capture": 1  # Auto capture payment
         })
 
         return jsonify(order)
