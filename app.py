@@ -68,14 +68,14 @@ razorpay_client = razorpay.Client(auth=(os.getenv("RAZORPAY_KEY_ID"), os.getenv(
 def create_order():
     try:
         data = request.json
-        amount = data.get("amount", 1) 
+        amount = data.get("amount", 250) 
         currency = data.get("currency", "INR")
 
         # Create order
         order = razorpay_client.order.create({
             "amount": amount * 100,  # Razorpay expects amount in paise
             "currency": currency,
-            "payment_capture": 1  # Auto capture payment
+            "payment_capture": 250  # Auto capture payment
         })
 
         return jsonify(order)
